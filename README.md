@@ -22,7 +22,7 @@ Run this using a 2015 model MacBook Air. Then use a Sony STR-K670P radio receive
 
 You should hear the "Mary Had a Little Lamb" tune playing repeatedly. Other equipment and tuning may work as well. On the equipment above, the author has achieved clear transmission over two meters of open air or one meter through drywall. Different results will be achievable with different equipment.
 
-Are you using an antenna? At the beginning, I placed the antenna directly on top of the number 4 key and that worked best (on any AM frequency). It was a round antenna. Then once I knew it works I moved the antenna back. Moving it back reduced the number of frequencies that it worked on, and eventually only that one (1580 kHz) worked. Different hardware will certainly have different frequency response. Here are some results that have been sent in by readers. Please mail github.com@phor.net with your results (including make and model of all equipment involved) or [edit this file directly](https://github.com/fulldecent/system-bus-radio/edit/master/TEST-DATA.tsv) and create a pull request.
+Are you using an antenna? At the beginning, the author placed the antenna directly on top of the number 4 key and that worked best (on any AM frequency). It was a round antenna. Then once they knew it worked they moved the antenna back. Moving it back reduced the number of frequencies that it worked on, and eventually only that one (1580 kHz) worked. Different hardware will certainly have different frequency response. Here are some results that have been sent in by readers. Please mail github.com@phor.net with your results (including makes and models of all equipment involved) or [edit this file directly](https://github.com/fulldecent/system-bus-radio/edit/master/TEST-DATA.tsv) and create a pull request.
 
 Technical Explanation
 ------------------
@@ -34,7 +34,7 @@ This program runs instructions on the computer that cause electromagnetic radiat
  * Be accepted by the antenna
  * Be selected by the receiver
 
-By trial and error, the above frequency was found to be ideal for that equipment. If somebody would like to send me a SDR that is capable of receiving 100 kHz and up then I could test other frequencies.
+By trial and error, the above frequency was found to be ideal for that equipment. If somebody would like to send a SDR that is capable of receiving 100 kHz and up then other frequencies could be tested.
 
 The actual emissions are caused by the `_mm_stream_si128` instruction that writes through to a memory address. Inspiration for using this instruction was provided in:
 
@@ -42,7 +42,7 @@ The actual emissions are caused by the `_mm_stream_si128` instruction that write
 >
 > https://www.usenix.org/node/190937
 
-Please note that replacing `_mm_stream_si128` with a simple `x++;` will work too. My experience has been that  `_mm_stream_si128` produces a stronger signal. There may be other ideas that work even better, and it would be nice to improve this to be more portable (not require SSE extensions).
+Please note that replacing `_mm_stream_si128` with a simple `x++;` will work too. The author's experience has been that  `_mm_stream_si128` produces a stronger signal. There may be other ideas that work even better, and it would be nice to improve this method to be more portable (not require SSE extensions).
 
 The program uses square wave modulation, which is depicted below:
 
